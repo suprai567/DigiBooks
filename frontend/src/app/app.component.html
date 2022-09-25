@@ -1,0 +1,48 @@
+<!-- <app-bookform></app-bookform> -->
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav me-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/' (click)='referenceName.isInitialHome=true' style="color:rgb(237, 231, 67);">Digital
+          Books</a>
+      </li>
+    </ul>
+      <li class="nav-item" *ngIf="showSearchBooks">
+        <a class="nav-link" routerLink="/bookform" style="color:rgb(237, 231, 67);">Search Books</a>
+      </li>
+      <li class="nav-item" *ngIf="showCreateBooks">
+        <a class="nav-link" routerLink="/savebook" style="color:rgb(237, 231, 67);">CreateBooks</a>
+      </li>
+      <li class="nav-item" *ngIf="showGetAllAuthorBooks">
+        <a class="nav-link" routerLink="/getallauthorbooks" style="color:rgb(237, 231, 67);">Get All Author Books</a>
+      </li>
+    
+    <ul class="navbar-nav ms-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" style="color:rgb(237, 231, 67);">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" style="color:rgb(237, 231, 67);">Login</a>
+      </li>
+    </ul>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" routerLink="/profile">{{ username }}</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a href class="nav-link" (click)="logout()" style="color:rgb(237, 231, 67);">LogOut</a>
+    </li>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<br>
+<div *ngIf="referenceName.isInitialHome==true">
+  <div style="background-image: url('https://source.unsplash.com/DCzpr09cTXY');
+background-size: cover; height:600px; padding-top: 80px; text-align: center;">
+    <h1 style="font-size:100px; color:rgb(237, 231, 67); margin:10px;">DIGITAL BOOKS</h1>
+    <p style="font-size:20px; color: white"><i>With digital eBooks, publishers can engage readers more
+        thoroughly as compared to traditional books</i></p>
+  </div>
+</div>
